@@ -33,9 +33,10 @@ unsigned char convert_threshold(int temperature) {
 }
 
 void print_instruction(char* program_name){
-    printf("Correct usage:\n%s operation_mode alert_mode [T_high T_low]\n", program_name);
+    printf("Correct usage:\n%s operation_mode alert_mode [alert_polarity T_high T_low]\n", program_name);
     printf("- operation_mode: 0: CONTINUOUS mode, 1 ONESHOT mode\n");
     printf("- alert_mode: 0: ALERT mode OFF, 1: ALERT mode ON\n");
+	printf("- alert_polarity: 0: ALERT active if pin LOW, 1: ALERT active if pin HIGH\n");
     printf("- T_high: if ALERT mode is ON, T_high is temperature threshold high [%d,%d]\n",MIN_TEMP,MAX_TEMP);
     printf("- T_high: if ALERT mode is ON, T_low is temperature threshold low [%d,%d]\n",MIN_TEMP,MAX_TEMP);
     printf("Note:\n1) if ALERT is OFF, T_high and T_low are not considered\n2) T_high must be >= T_low\n");
