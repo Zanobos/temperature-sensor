@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include "sensor.h"
 
-
 int main(int argc, char **argv)
 {
     printf("==== Testing change_bit_byte\n");
