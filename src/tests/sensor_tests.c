@@ -1,7 +1,8 @@
+#include <stdio.h>
 #include "sensor.h"
-#include "stdio.h"
 
-/*int main(int argc, char **argv)
+
+int main(int argc, char **argv)
 {
     printf("==== Testing change_bit_byte\n");
     printf("TEST PASSED: %s\n", (change_bit_byte(0x40,0,0))==0x40? "TRUE" : "FALSE");
@@ -18,4 +19,4 @@
     printf("TEST PASSED: %s\n", (read_configuration())==0xE0? "TRUE" : "FALSE");
     configure_sensor(0,0);
     printf("TEST PASSED: %s\n", (read_configuration())==0x40? "TRUE" : "FALSE");
-}*/
+}

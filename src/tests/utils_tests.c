@@ -1,7 +1,7 @@
-#include "main.h"
-#include "stdio.h"
+#include <stdio.h>
+#include "utils.h"
 
-/*int main(int argc, char **argv)
+int main(int argc, char **argv)
 {
     printf("==== Testing valid_input\n");
     printf("TEST PASSED: %s\n", valid_input("120")==1? "TRUE" : "FALSE");
@@ -29,4 +29,4 @@
     printf("TEST PASSED: %s\n", (convert_threshold(thresholds[2])==0x00U)? "TRUE" : "FALSE");
     printf("TEST PASSED: %s\n", (convert_threshold(thresholds[3])==0x20U)? "TRUE" : "FALSE");
     printf("TEST PASSED: %s\n", (convert_threshold(thresholds[4])==0x78U)? "TRUE" : "FALSE");
-}*/
+}
