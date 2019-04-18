@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "i2c_api.h"
+#include <stdlib.h>
 #include "sensor.h"
 #include "utils.h"
 
