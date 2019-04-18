@@ -11,4 +11,10 @@ Launch the script "src/tests/main_tests.sh" in order to test a different sets of
 
 ## run
 
-launch the application "sensor" after having build
+launch the application "sensor" after having built
+
+## notes
+
+the application has been tested on a raspberry device:
+Linux raspberrypi 4.14.79-v7+ #1159 SMP Sun Nov 4 17:50:20 GMT 2018 armv7l GNU/Linux
+the i2c bus has been mocked by the file "i2c_api.c"
