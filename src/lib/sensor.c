@@ -10,12 +10,12 @@ int close_bus(void) {
     return i2c_close();
 }
 
-//alert polarity left at default
-int configure_sensor(int operation_mode, int alert_mode) {
+int configure_sensor(int operation_mode, int alert_mode, int alert_polarity) {
     
     unsigned char buffer = read_configuration();
     buffer = change_bit_byte(buffer,POWER_DOWN_BIT,operation_mode);
     buffer = change_bit_byte(buffer,ALERT_EN_BIT,alert_mode);
+	buffer = change_bit_byte(buffer,ALERT_POLARITY_BIT,alert_polarity);
     int result = set_configuration(buffer);
     
     return result;

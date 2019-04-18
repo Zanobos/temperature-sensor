@@ -7,7 +7,7 @@ int main(int argc, char **argv)
 {
     
     //Fields declaration
-    int alert_mode, operation_mode;
+    int alert_mode, operation_mode, alert_polarity;
     int t_high = -300, t_low = -300; //initializing thresholds to non valid values
     unsigned char buffer[2];
     unsigned char threshold;
@@ -28,29 +28,31 @@ int main(int argc, char **argv)
     
     //If we get here, ALERT mode is setted
     alert_mode = argv[2][0] == '1';
-    if(alert_mode && argc < 5) {
-        printf("ALERT mode is ON, but no T_high and T_low are passed!\n");
+    if(alert_mode && argc < 6) {
+        printf("ALERT mode is ON, but no alert_polarity, T_high and T_low are passed!\n");
         print_instruction(argv[0]);
         return EXIT_FAILURE;
     }
     
-    //If ALERT mode is ON, I can extract threshold values
+    //If ALERT mode is ON, I can extract polarity and threshold values
     if(alert_mode) {
+		//parsing polarity
+		alert_polarity = argv[3][0] == '1';
         //parsing t_high
-        if(!valid_input(argv[3])) {
+        if(!valid_input(argv[4])) {
             printf("T_high not in valid range\n");
             print_instruction(argv[0]);
             return EXIT_FAILURE;
         } else {
-            t_high = atoi(argv[3]);
+            t_high = atoi(argv[4]);
         }
         //parsing t_low
-        if(!valid_input(argv[4])) {
+        if(!valid_input(argv[5])) {
             printf("T_low not in valid range\n");
             print_instruction(argv[0]);
             return EXIT_FAILURE;
         } else {
-            t_low = atoi(argv[4]);
+            t_low = atoi(argv[5]);
         }
         //T_low must be < T_high
         if(t_high < t_low) {
@@ -58,7 +60,10 @@ int main(int argc, char **argv)
             print_instruction(argv[0]);
             return EXIT_FAILURE;
         }
-    }
+    } else {
+		//If alert mode is not on, I put polarity bit to default value
+		alert_polarity = 0;
+	}
     
     //From this point on, input should be sanitized
     
@@ -69,7 +74,7 @@ int main(int argc, char **argv)
     }
     
     //2. Configuring the device
-    configure_sensor(operation_mode, alert_mode);
+    configure_sensor(operation_mode, alert_mode, alert_polarity);
     
     //3. Set up alarm thresholds
     if(!alert_mode) {

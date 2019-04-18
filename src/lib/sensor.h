@@ -11,6 +11,7 @@
 
 #define POWER_DOWN_BIT 7
 #define ALERT_EN_BIT 5
+#define ALERT_POLARITY_BIT 4
 #define ONE_SHOT_BIT 2
 
 //Only to have the default data also here
@@ -23,7 +24,7 @@ int open_bus(void);
 int close_bus(void);
 
 //READ and WRITE with logic
-int configure_sensor(int operation_mode, int alert_mode);
+int configure_sensor(int operation_mode, int alert_mode, int alert_polarity);
 void read_temperature_oneshot(unsigned char* buffer);
 
 //READ on single registers
