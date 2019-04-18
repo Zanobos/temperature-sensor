@@ -6,15 +6,20 @@ Use the script provided "build.sh" in order to build the application itself and 
 
 ## tests
 
-Launch the 2 executables created "utils_module_tests" and "sensor_module_tests" in order to perform unit testing
-Launch the script "src/tests/main_tests.sh" in order to test a different sets of input for the application
+Test on module "utils" -> "utils_module_tests".
+
+Test on module "sensor" -> "sensor_module_tests".
+
+Test on the application -> script "src/tests/main_tests.sh"
 
 ## run
 
-launch the application "sensor" after having built
+launch the application "sensor" (after performing a build)
 
 ## notes
 
 the application has been tested on a raspberry device:
-Linux raspberrypi 4.14.79-v7+ #1159 SMP Sun Nov 4 17:50:20 GMT 2018 armv7l GNU/Linux
+
+Linux raspberrypi 4.14.79-v7+ #1159 SMP Sun Nov 4 17:50:20 GMT 2018 armv7l GNU/Linux.
+
 the i2c bus has been mocked by the file "i2c_api.c"
